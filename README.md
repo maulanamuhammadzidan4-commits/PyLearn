@@ -17,7 +17,10 @@ Number adalah angka. Ada 3 jenis angka di Python:<br>
 - Complex: Adalah bilangan yang berisi bilangan real dan bilangan imajiner (yang dilambangkan huruf 'j')<br>
 **String**<br>
 String bisa ditandai dengan tanda kutip tunggal ('), maupun ganda (") (keduanya sama).<br>
-String juga diperlakukan sebagai kumpulan dari karakter-karakter yang berurutan. Yang membuat string bisa dimasukkan ke loop (for loop), melakukan indexing dan slicing.
+String juga diperlakukan sebagai kumpulan dari karakter-karakter yang berurutan. Yang membuat string bisa dimasukkan ke loop (for loop), melakukan indexing dan slicing.<br>
+**Sumber:**<br>
+- [Number](https://www.w3schools.com/python/python_numbers.asp)
+- [String](https://www.w3schools.com/python/python_strings.asp)
 
 ## Day 2: Python Variable
 Belajar: aturan pembuatan variabel, multiple values, output variabel, dan variabel global
