@@ -1,6 +1,27 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 4: Boolean
+Belajar: isi dari boolean, pemanfaatan nilai boolean dalam blok if, dan evaluasi nilai menggunakan fungsi bool()
+
+```python
+benar = True
+if benar:
+    print("Ya ya saya setuju")
+else:
+    print("Saya akan lawan!")
+```
+### Materi:
+**Boolean**<br>
+Boolean mewakili nilai True dan False.<br>
+**If statement**
+Kita bisa memanfaatkan boolean untuk keperluan logika dalam blok kode if. Seperti untuk mengecek apakah harga barang pas di kantong atau tidak.<br>
+**Bool() function**<br>
+Fungsi ini berfungsi untuk mengevaluasi nilai apapun yang akan mengembalikan nilai True atau False.<br>
+Nilai yang memiliki isi (tidak kosong) dalam bentuk apapun akan mengembalikan nilai True (kecuali dalam beberapa kasus). Begitu juga untuk nilai False.<br>
+**Sumber:**
+[W3School]{https://www.w3schools.com/python/python_booleans.asp}
+
 ## Day 3: String and Integer
 Belajar: tipe data int, dan fleksibilitas string
 
