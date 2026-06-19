@@ -1,6 +1,46 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 5: Python Operators
+Belajar: 8 operator python dan prioritasnya
+
+```python
+beruntung = [7, 8, 9]
+sial = [4, 13, 17]
+if 8 in sial:
+    print("Sepertinya aku sedang sial")
+else:
+    print("Aku representasi dewi Fortuna!")
+```
+### Materi:
+**Operators**<br>
+- Operator aritmatika (arithmetic operators)
+- Operator penugasan (assignment operators)
+- Operator ternary (ternary operator)
+- Operator perbandingan (comparison operator)
+- Operator logika (logical operators)
+- Operator identitas (identity operators)
+- Membership operators
+- Bitwise operators<br>
+**Precedence**<br>
+- () parentheses
+- ** pangkat/eksponen
+- +x, -x, ~x unary plus, minus dan bitwise NOT
+- *, /, //, % kali, bagi, floor division, modulus
+- +, - pertambahan dan pengurangan
+- <<, >> bitwise left dan right shift
+- & bitwise AND
+- ^ bitwise XOR
+- | bitwise OR
+- ==, !=, >, >=, <, <=, is, is not, in, not in
+- not
+- and
+- or
+### Evaluasi:
+Saya menemukan masalah saat mendalami bitwise operator. Tapi setelah saya berhenti sejenak, saya jadi memahaminya. Dan besok saya pasti sudah memahaminya.
+### Sumber
+[W3School]{https://www.w3schools.com/python/python_operators.asp}
+
 ## Day 4: Boolean
 Belajar: isi dari boolean, pemanfaatan nilai boolean dalam blok if, dan evaluasi nilai menggunakan fungsi bool()
 
