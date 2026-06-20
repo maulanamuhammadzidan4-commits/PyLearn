@@ -1,6 +1,22 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 6: Py Lists
+Belajar: Cara menggunakan, dan mengubah-ubah isi list
+```python
+# Contoh kode
+buah = ['apel', 'semangka', 'kiwi', 'pir']
+buah_favorit = [x for x in buah if 'p' in x]
+print(buah_favorit)
+```
+### Materi:
+- Cara mengakses list
+- Cara menambahkan item ke list
+- Cara menduplikasi list
+- Cara menghapus isi dan list itu sendiri
+### Sumber
+[W3School](https://www.w3schools.com/python/python_lists.asp)
+
 ## Day 5: Python Operators
 Belajar: 8 operator python dan prioritasnya
 
@@ -14,32 +30,32 @@ else:
 ```
 ### Materi:
 **Operators**<br>
-- Operator aritmatika (arithmetic operators)
-- Operator penugasan (assignment operators)
-- Operator ternary (ternary operator)
-- Operator perbandingan (comparison operator)
-- Operator logika (logical operators)
-- Operator identitas (identity operators)
-- Membership operators
-- Bitwise operators<br>
+* Operator aritmatika (arithmetic operators)
+* Operator penugasan (assignment operators)
+* Operator ternary (ternary operator)
+* Operator perbandingan (comparison operator)
+* Operator logika (logical operators)
+* Operator identitas (identity operators)
+* Membership operators
+* Bitwise operators<br>
 **Precedence**<br>
-- () parentheses
-- ** pangkat/eksponen
-- +x, -x, ~x unary plus, minus dan bitwise NOT
-- *, /, //, % kali, bagi, floor division, modulus
-- +, - pertambahan dan pengurangan
-- <<, >> bitwise left dan right shift
-- & bitwise AND
-- ^ bitwise XOR
-- | bitwise OR
-- ==, !=, >, >=, <, <=, is, is not, in, not in
-- not
-- and
-- or
+* () parentheses
+* ** pangkat/eksponen
+* +x, -x, ~x unary plus, minus dan bitwise NOT
+* *, /, //, % kali, bagi, floor division, modulus
+* +, - pertambahan dan pengurangan
+* <<, >> bitwise left dan right shift
+* & bitwise AND
+* ^ bitwise XOR
+* | bitwise OR
+* ==, !=, >, >=, <, <=, is, is not, in, not in
+* not
+* and
+* or
 ### Evaluasi:
 Saya menemukan masalah saat mendalami bitwise operator. Tapi setelah saya berhenti sejenak, saya jadi memahaminya. Dan besok saya pasti sudah memahaminya.
 ### Sumber
-[W3School]{https://www.w3schools.com/python/python_operators.asp}
+[W3School](https://www.w3schools.com/python/python_operators.asp)
 
 ## Day 4: Boolean
 Belajar: isi dari boolean, pemanfaatan nilai boolean dalam blok if, dan evaluasi nilai menggunakan fungsi bool()
@@ -60,7 +76,7 @@ Kita bisa memanfaatkan boolean untuk keperluan logika dalam blok kode if. Sepert
 Fungsi ini berfungsi untuk mengevaluasi nilai apapun yang akan mengembalikan nilai True atau False.<br>
 Nilai yang memiliki isi (tidak kosong) dalam bentuk apapun akan mengembalikan nilai True (kecuali dalam beberapa kasus). Begitu juga untuk nilai False.<br>
 **Sumber:**
-[W3School]{https://www.w3schools.com/python/python_booleans.asp}
+[W3School](https://www.w3schools.com/python/python_booleans.asp)
 
 ## Day 3: String and Integer
 Belajar: tipe data int, dan fleksibilitas string
