@@ -1,6 +1,21 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 7:
+Belajar: Tuple
+```python
+# Contoh tuple
+user = ("Udin", "Ujang", "Budi", "Ucup")
+print(user[2])
+```
+### Materi:
+- Sintaks tuple
+- Aturan dalam tuple
+### Evaluasi:
+Karena pada dasarnya tuple mirip dengan list (hanya saja tuple itemnya tidak bisa diubah), jadi saya hanya membuat ringkasan singkat tentang sintaks dan aturannya.
+### Sumber:
+[W3School](https://www.w3schools.com/python/python_tuples.asp)
+
 ## Day 6: Py Lists
 Belajar: Cara menggunakan, dan mengubah-ubah isi list
 ```python
