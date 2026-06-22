@@ -1,6 +1,25 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 8:
+Belajar: Set dan Frozenset
+```python
+# Contoh set
+mySet = {"Jawa", "Madura", "Bandung"}
+print(mySet)
+# Contoh frozenset
+myFzSet = frozenset({"Jakarta", "Yogyakarta", "IKN"})
+print(myFzSet)
+```
+### Materi:
+- Sintaks set dan frozenset
+- Aturan set dan frozenset
+- Sifat unik operator '^'
+### Evaluasi:
+Saya sempat kebingungan oleh methode symmetic_difference (lebih tepatnya simbolnya '^'). Yang saya pikirkan, output yang diberikan akan berisi 2 saja (lihat di kode), ternyata saya salah. Karena sifat unik dari simbol '^' yang membuat item yang muncul dengan bilangan ganjil akan dimasukkan, sementara item yang muncul dengan bilangan genap baru diabaikan.
+### Sumber:
+[W3School](https://www.w3schools.com/python/python_sets.asp)
+
 ## Day 7:
 Belajar: Tuple
 ```python
