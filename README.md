@@ -1,6 +1,11 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 9:
+Mengulas materi
+### Materi
+Saya mengulas semua materi dari day 1 hingga day 8 dengan menggunakan sebuah mini project yang mewakili 80% materi.
+
 ## Day 8:
 Belajar: Set dan Frozenset
 ```python
