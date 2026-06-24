@@ -1,6 +1,24 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 10:
+Belajar: Dictionary
+```python
+# Contoh dictionary
+myDict = {
+    "nama": "Udin",
+    "umur": 20,
+    "kota": "Bandung"
+}
+print(myDict["nama"])
+```
+### Materi:
+- Sintaks dictionary
+- Aturan dictionary
+- Cara mengakses dictionary
+### Sumber:
+[W3School](https://www.w3schools.com/python/python_dictionaries.asp)
+
 ## Day 9:
 Mengulas materi
 ### Materi
