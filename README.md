@@ -1,6 +1,35 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 11:
+Belajar: If statement dan Match statement
+```python
+# Contoh if statement
+x = 10
+if x > 5:
+    print("x lebih besar dari 5")
+else:
+    print("x lebih kecil dari atau sama dengan 5")
+
+# Contoh match statement
+y = 2
+match y:
+    case 1:
+        print("y adalah 1")
+    case 2:
+        print("y adalah 2")
+    case _:
+        print("y bukan 1 atau 2")
+```
+### Materi:
+**IF statement**<br>
+If statement adalah blok kode yang akan dijalankan jika kondisi tertentu terpenuhi. Jika kondisi tidak terpenuhi, maka blok kode lain (else) akan dijalankan.<br>
+**Match statement**<br>
+Match statement adalah blok kode yang akan dijalankan berdasarkan nilai dari sebuah variabel. Jika nilai variabel cocok dengan salah satu case, maka blok kode dalam case tersebut akan dijalankan. Jika tidak ada case yang cocok, maka blok kode dalam case _ (default) akan dijalankan.<br>
+### Sumber:
+[If statement](https://www.w3schools.com/python/python_conditions.asp)<br>
+[Match statement](https://www.w3schools.com/python/python_match.asp)
+
 ## Day 10:
 Belajar: Dictionary
 ```python
