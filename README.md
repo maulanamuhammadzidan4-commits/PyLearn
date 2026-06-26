@@ -1,6 +1,28 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 12:
+Belajar: Looping (for dan while)
+```python
+# Contoh while loop
+i = 1
+while i < 7:
+    print(i)
+    i += 1
+
+# Contoh for loop
+for x in range(7):
+    print(x)
+```
+### Materi:
+**While loop**<br>
+While loop adalah blok kode yang akan dijalankan selama kondisi tertentu terpenuhi. Jika kondisi tidak terpenuhi, maka blok kode akan berhenti dijalankan.<br>
+**For loop**<br>
+For loop adalah blok kode yang akan dijalankan untuk setiap item dalam sebuah koleksi (seperti list, tuple, string, dsb.).<br>
+### Sumber:
+[While loop](https://www.w3schools.com/python/python_while_loops.asp)<br>
+[For loop](https://www.w3schools.com/python/python_for_loops.asp)
+
 ## Day 11:
 Belajar: If statement dan Match statement
 ```python
