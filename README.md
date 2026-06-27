@@ -1,6 +1,35 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+### Day 13:
+Belajar: Basic Function: positional argument, keyword argument, default argument, arbitrary argument, dan scope
+```python
+# contoh function
+def myFunction(fname, lname):
+    print(f"Nama lengkap saya adalah {fname} {lname}")
+myFunction("Udin", "Ujang") # positional argument
+myFunction(lname="Ujang", fname="Udin") # keyword argument
+```
+### Materi:
+**Function:**<br>
+function adalah blok kode yang bisa dipanggil kapanpun dibutuhkan. Function berguna untuk mengurangi pengulangan kode, mempermudah pembacaan kode, dan mempermudah pemeliharaan kode.<br>
+**Positional argument:**<br>
+Positional argument adalah argumen yang harus diberikan sesuai urutan parameter yang ditentukan dalam function.<br>
+**Keyword argument:**<br>
+Keyword argument adalah argumen yang diberikan dengan menyebutkan nama parameter yang sesuai. Urutan argumen tidak penting.<br>
+**Default argument:**<br>
+Default argument adalah argumen yang memiliki nilai default jika tidak diberikan nilai saat pemanggilan function.<br>
+**Arbitrary argument:**<br>
+Arbitrary argument adalah argumen yang memungkinkan kita untuk menerima banyak argumen. Ada dua jenis arbitrary argument: *args (untuk positional argument) dan **kwargs (untuk keyword argument).<br>
+**Scope:**<br>
+Scope variable adalah area dimana variable itu bisa diakses. Ada 2 jenis scope variable, yaitu
+1. Local scope, yaitu variable yang hanya bisa diakses dalam fungsi itu sendiri.
+2. Global scope, yaitu variable yang bisa diakses di seluruh program.<br>
+### Evaluasi:
+Saya sempat mengalami kendala saat mencoba menerapkan konsep arbitrary argument. Saya sempat bingung bagaimana cara menambahkan item ke list yang sudah ada menggunakan *args. Setelah saya mencoba beberapa kali, akhirnya saya menemukan cara yang tepat untuk menambahkan item ke list menggunakan *args. Saya menggunakan method extend() untuk menambahkan item ke list yang sudah ada.
+### Sumber:
+[W3School](https://www.w3schools.com/python/python_functions.asp)
+
 ## Day 12:
 Belajar: Looping (for dan while)
 ```python
