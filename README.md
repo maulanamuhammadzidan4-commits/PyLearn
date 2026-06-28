@@ -1,6 +1,57 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 14:
+Belajar: Advance Function: decorators, lambda function, map(), filter(), sorted(), dan generator
+```python
+# Contoh decorator
+def my_decorator(func):
+    def wrapper():
+        print("Sebelum fungsi dipanggil.")
+        func()
+        print("Setelah fungsi dipanggil.")
+    return wrapper
+@my_decorator
+def say_hello():
+    print("Hello!")
+say_hello()
+# Contoh lambda function
+add = lambda x, y: x + y
+print(add(5, 3))
+# Contoh map()
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)
+# Contoh filter()
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)
+# Contoh sorted()
+sorted_numbers = sorted(numbers, key=lambda x: -x)
+print(sorted_numbers)
+# Contoh generator
+def my_generator():
+    for i in range(5):
+        yield i
+print(list(my_generator()))
+```
+### Materi:
+**Decorator:**<br>
+Decorator adalah fungsi yang digunakan untuk memodifikasi perilaku fungsi lain. Decorator menerima fungsi sebagai argumen dan mengembalikan fungsi baru yang telah dimodifikasi.<br>
+**Lambda Function:**<br>
+Lambda function adalah fungsi anonim yang didefinisikan menggunakan kata kunci `lambda`. Lambda function biasanya digunakan untuk operasi sederhana dan singkat.<br>
+**Map():**<br>
+Map() adalah fungsi built-in yang digunakan untuk menerapkan fungsi tertentu ke setiap item dalam iterable (seperti list) dan mengembalikan iterator baru dengan hasilnya.<br>
+**Filter():**<br>
+Filter() adalah fungsi built-in yang digunakan untuk menyaring item dalam iterable berdasarkan kondisi tertentu dan mengembalikan iterator baru dengan item yang memenuhi kondisi tersebut.<br>
+**Sorted():**<br>
+Sorted() adalah fungsi built-in yang digunakan untuk mengurutkan item dalam iterable. Fungsi ini mengembalikan list baru dengan item yang telah diurutkan.<br>
+**Generator:**<br>
+Generator adalah fungsi yang menggunakan kata kunci `yield` untuk menghasilkan nilai satu per satu. Generator memungkinkan kita untuk menghemat memori karena tidak menyimpan semua nilai sekaligus, melainkan menghasilkan nilai saat dibutuhkan.<br>
+### Evaluasi:
+Saya sempat mengalami kendala saat mencoba menuslikan semua itu. Letak kesalahan saya adalah saya kurang memahami konsep argument dan parameters. Saya sempat melakukan type error karena saya salah menuliskan argument. Setelah saya mencoba memahami dengan melihat contoh kode, saya jadi lebih faham dan mampu memperbaiki kesalahan saya.
+### Sumber:
+[W3School](https://www.w3schools.com/python/python_functions.asp)
+
 ### Day 13:
 Belajar: Basic Function: positional argument, keyword argument, default argument, arbitrary argument, dan scope
 ```python
