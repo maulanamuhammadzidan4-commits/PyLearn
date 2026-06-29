@@ -198,7 +198,7 @@ pesan.send(855987)
 pesan.send("LKSDhonf")
 
 # close method
-def angka():
+def nomor():
     try:
         yield 1
         yield 2
@@ -207,6 +207,6 @@ def angka():
     finally:
         print("Generator telah ditutup.")
 
-gen = angka()
+gen = nomor()
 print(next(gen))
 gen.close() # menutup generator, sehingga tidak bisa digunakan lagi.

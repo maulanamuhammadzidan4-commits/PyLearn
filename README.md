@@ -1,6 +1,57 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 15:
+Belajar: RAIMDM (singkatan yang saya buat sendiri), range, array, iterator, module, datetime, math
+```python
+import datetime
+import math
+# contoh range
+print(list(range(1, 10, 3)))
+# contoh array
+mycar = ["Porche", "Lamborgini", "GTR"]
+print(mycar[1])
+# conoth iterator
+mobil = iter(mycar)
+print(next(mobil))
+# contoh module
+# module menggunakan kata kunci import supaya bisa digunakan seperti di atas
+print(math.sqrt(32))
+# contoh datetime
+sekarang = datetime.datetime.now()
+print(sekarang.strftime("%a"))
+# contoh math
+phi = math.pi
+print(phi)
+```
+### Materi:
+**Range:**<br>
+Range adalah sebuah fungsi yang akan mengembalikan sebuah urutan angka yang immutable.<br>
+Syntax: range(start, stop, step)<br><br>
+**Array:**<br>
+Sebenarnya tidak ada array di Python. Jadi sebagai gantinya, kita bisa menggunakan list untuk menggnatikan array.<br><br>
+**Iterator:**<br>
+Iterator adalah sebuah objek yang dapat dihitung dan dicek satu persatu. Secara teknis, iterator di python adalah sebuah objek yang menerapkan protokol iterator. Yang terdiri dari __iter__() dan __next__().<br>
+Iterator dan iterable berbeda:<br>
+- Iterator adalah objek yang secara teknis menerapkan protokol iterator
+- Iterable adalah objek yang menghasilkan iterator seperti (list, tuple, dict, set, dan str)<br><br>
+**Module:**<br>
+Modul adalah sebuah 'kotak perkakas' yang bisa digunakan berkali-kali. Atau bisa dibilang modul adalah jembatan yang memungkinkan kita untuk mengakses kode dalam file lain tanpa harus copypas.<br>
+Gunakan kata kunci import untuk mendeklarasikan sebuah modul.<br><br>
+**Datetime:**<br>
+Datetime adalah sebuah modul bawaan Python untuk bekerja dengan waktu. Karena di Python tidak ada tipe data khusus untuk menyimpan data waktu, maka datetime ini menjadi sebuah penyelamat karena bisa membuat semacam tipe data khusus untuk waktu.<br><br>
+**Math:**<br>
+Math adalah modul bawaan Python yang memungkinkan kita untuk melakukan operasi matematika dengan lebih kompleks dari biasanya.
+### Evaluasi:
+Saya sempat mengahadapi typeerror di bagian modul. Tapi setelah saya telaah sumber masalahnya, saya menemukannya dan dapat memperbaikinya. Saya juga sempat kesulitan untuk menguraikan pemahaman saya tentang materi ini. Lalu saya mencoba menggunakan AI untuk memperdalam pemahaman, dan saya pun bisa memahaminya.
+### Sumber:
+- [Range](https://www.w3schools.com/python/python_range.asp)
+- [Array](https://www.w3schools.com/python/python_arrays.asp)
+- [Iterator](https://www.w3schools.com/python/python_iterators.asp)
+- [Module](https://www.w3schools.com/python/python_modules.asp)
+- [Datetime](https://www.w3schools.com/python/python_datetime.asp)
+- [Math](https://www.w3schools.com/python/python_math.asp)
+
 ## Day 14:
 Belajar: Advance Function: decorators, lambda function, map(), filter(), sorted(), dan generator
 ```python
