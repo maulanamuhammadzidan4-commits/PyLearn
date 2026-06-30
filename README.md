@@ -1,6 +1,67 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 16:
+Belajar: JRePT (singkatan lagi), JSON, RegEx, PIP, Try-except-else-finally
+```python
+import json
+import re
+# conoth pengelolaan json
+jsonitem = '{"Nama": "Udin", "Status": "WNI", "Berlaku hingga": "Seumur hidup"}'
+teks = {'game': 'PGR', 'status': 'aktif'}
+dictkan = json.loads(jsonitem)
+jsonkan = json.dumps(teks)
+# contoh regex
+kalimat = "Orang di desa kan gak pake dollar"
+cari = re.search('gak pake', kalimat)
+if cari:
+    print("Itumah yang ngomong gak pake otak")
+# pip digunakan di luar kode
+# contoh blok kode try
+try:
+    print(x)
+except NameError:
+    print("Gak ada var itu bang!")
+except TypeError:
+    print("Salah tulis kali bang")
+else:
+    print("Kodenya normal...:")
+finally:
+    print("Blok try selesai!!!")
+```
+### Materi:
+**JSON:**<br>
+JSON adalah sintaks untuk menyimpan dan bertukar data. JSON adalah teks yang ditulis menggunakan JS object notation.<br>
+Konversi JSON ke Python:
+1. Menggunakan fungsi loads() (jangan lupa untuk mengimpor modul json dulu)
+Konversi Python ke JSON:<br>
+Kita bisa mengubah tipe data primitive di Python (kecuali complex) ke JSON dan juga tipe data semua tipe data koleksi (kecuali sets dan tuple yang akan menjadi list). Dengan menggunakna fnugsi dumps().<br>
+Konversi:<br>
+| Python | JSON |
+| :---: | :---: |
+| Dict | Object |
+| List | Array |
+| Tuple | Array |
+| Float | Number |
+| None | null |
+
+**RegEx:**<br>
+regEx (regular expression) adalah urutan karakter yang membentuk pola pencarian.<br>
+regex bisa digunakan untuk memeriksa apakah sebuah string punya pola pencarian yang ditentukan.<br><br>
+**PIP:**<br>
+Pip adalah pengelola package (paket) atua modul.<br>
+Paket adalah sekumpulan file yang dibutuhkan untuk menggunkan modul.<br><br>
+**Try...Except:**
+Ini adalah penyelamat kode. Krena jika ditemukan suatu kesalahan dalam kode, Python akan langusng menghentikan program. Dengan blok kode ini, kita bisa mencegah hal tersebut.<br><br>
+### Evaluasi:
+Saya sempat megnira kalau cara penulisan JSON itu sama seperti Python (bebas untuk menggunkana kutip satu maupun dua), ternyata tidak. Dan itu sempat error. Tapi saya menyadarinya dan segera memperbaikinya.<br>
+Saya juga sempat tidak memahami konsep RegEx, tapi setelah saya mencoba beberapa kode dan melihat contoh kode, saya pun jadi mengerti.
+### Sumber:
+[JSON](https://www.w3schools.com/python/python_json.asp)
+[RegEx](https://www.w3schools.com/python/python_regex.asp)
+[PIP](https://www.w3schools.com/python/python_pip.asp)
+[Try...Except](https://www.w3schools.com/python/python_try_except.asp)
+
 ## Day 15:
 Belajar: RAIMDM (singkatan yang saya buat sendiri), range, array, iterator, module, datetime, math
 ```python
