@@ -1,6 +1,42 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 17:
+Belajar FNUV (lagi), string Formatting, None, User input, VirtualEnv
+```python
+# Contoh string formatting
+nama = "Udin"
+umur = 20
+print("Nama saya adalah {} dan umur saya adalah {}".format(nama, umur))
+# atau
+print(f"Nama saya adalah {nama} dan umur saya adalah {umur}")
+# Contoh None
+x = None
+if x is None:
+    print("x adalah NoneType")
+# Contoh user input
+nama = input("Masukkan nama Anda: ")
+print(f"Nama Anda adalah {nama}")
+# Contoh VirtualEnv
+# VirtualEnv digunakan di luar kode, jadi tidak ada contoh kode di sini
+```
+### Materi:
+**String Formatting:**<br>
+String formatting adalah cara untuk menyisipkan nilai ke dalam string. Ada beberapa cara untuk melakukan string formatting di Python, termasuk menggunakan metode `format()` dan f-string.<br><br>
+**None:**<br>
+None adalah tipe data khusus di Python yang hanya memiliki satu nilai, yaitu `None`. Ini digunakan untuk menunjukkan bahwa sebuah variabel tidak memiliki nilai.<br><br>
+**User Input:**<br>
+User input adalah cara untuk menerima data dari pengguna melalui terminal atau konsol. Fungsi `input()` digunakan untuk membaca input dari pengguna.<br><br>
+**VirtualEnv:**<br>
+VirtualEnv adalah alat untuk membuat lingkungan Python yang terisolasi. Ini memungkinkan Anda untuk menginstal paket dan modul Python tanpa memengaruhi instalasi Python global Anda. Ini sangat berguna untuk mengelola dependensi proyek yang berbeda.<br><br>
+### Evaluasi:
+Saya sempat lupa kalau fungsi input selalu mengembalikan string, jadi saya harus mengkonversinya ke tipe data yang sesuai jika diperlukan.
+### Sumber:
+[String Formating](https://www.w3schools.com/python/python_string_formatting.asp)
+[None](https://www.w3schools.com/python/python_none.asp)
+[User Input](https://www.w3schools.com/python/python_user_input.asp)
+[VirtualEnv](https://www.w3schools.com/python/python_virtualenv.asp)
+
 ## Day 16:
 Belajar: JRePT (singkatan lagi), JSON, RegEx, PIP, Try-except-else-finally
 ```python
