@@ -1,6 +1,9 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 18:
+Saya tidak belajar hari ini saya hanya membaca-baca ulang materi.
+
 ## Day 17:
 Belajar FNUV (lagi), string Formatting, None, User input, VirtualEnv
 ```python
