@@ -1,0 +1,79 @@
+dasar = {
+    "konsep": "Kekuatan emosi yang diolah logika",
+    "sumber": "sinyal listrik di sistem limbik"
+}
+
+tingkat = {
+    "T1": {
+        "tingkat": 'pertama',
+        "nama": "Sopana Eka",
+        "sebutan": "Sisya",
+        "pengguna": "anak berbakat dan orang dengan sistem limbik yang bagus (Pranadhana)",
+        "penggunaan energi emosi": "2.5%",
+        "penguasaan 4 gaya dasar": "Tidak ada",
+
+    },
+    "T2": {
+        "tingkat": 'kedua',
+        "nama": "Sopana Dvi",
+        "sebutan": "Shkalita",
+        "pengguna": "orang yang punya bakat sihir tapi tidak mendapat pendidikan sihir (akan menyimpang, seperti jadi rampok) dan orang tanpa bakat tapi bekerja keras.",
+        "penggunaan energi emosi": "6.7%",
+        "penguasaan 4 gaya dasar": "Tidak ada",
+
+    },
+    "T3": {
+        "tingkat": 'ketiga',
+        "nama": "Sopana Tri",
+        "sebutan": "Sadhaka",
+        "pengguna": "pelajar berbakat, penyihir kerajaan, dan penyhir pada umumnya",
+        "penggunaan energi emosi": "20%",
+        "penguasaan 4 gaya dasar": "2 dari 4 gaya",
+
+    },
+    "T4": {
+        "tingkat": 'batas manusia biasa',
+        "nama": "Sopana Catur",
+        "sebutan": "Atisara",
+        "pengguna": "tingkat tertinggi (batas) bagi para pelajar, penyihir kerajaan dan penyihir umumnya",
+        "penggunaan energi emosi": "50%",
+        "penguasaan 4 gaya dasar": "4 dari 4 gaya",
+
+    },
+    "T5": {
+        "tingkat": 'terpilih',
+        "nama": "Sopana Panca",
+        "sebutan": "Pancamurti",
+        "pengguna": "terpilih, dan hanya 5 pengguna di tiap negara",
+        "penggunaan energi emosi": "67%",
+        "penguasaan 4 gaya dasar": "4/4 ditambah manipulasi wujud materi",
+
+    },
+    "T6": {
+        "tingkat": 'legenda',
+        "nama": "Sopana Sat",
+        "sebutan": "Mayakara",
+        "pengguna": "Tercatat 3 orang di sejarah",
+        "penggunaan energi emosi": "75 sampai 80%",
+        "penguasaan 4 gaya dasar": "4/4 ditambah manipulasi realita sempit",
+
+    },
+    "T7": {
+        "tingkat": 'mitos',
+        "nama": "Sopana Sapta",
+        "sebutan": "Sunya",
+        "pengguna": "tidak ada catatan",
+        "penggunaan energi emosi": "85 sampai 92%",
+        "penguasaan 4 gaya dasar": "diperkirakan dapat memanipulasi dimensi",
+
+    },
+    "T8": {
+        "tingkat": 'tertinggi',
+        "nama": "Sopana Asta",
+        "sebutan": "?",
+        "pengguna": "biasanya sesuatu yang dipanggil 'dewa'",
+        "penggunaan energi emosi": "99%",
+        "penguasaan 4 gaya dasar": "bisa dibilang 'dewa'",
+
+    }
+}

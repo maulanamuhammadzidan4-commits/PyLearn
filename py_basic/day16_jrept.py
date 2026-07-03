@@ -35,7 +35,7 @@ paket berisi semua file yang dibutuhkan untuk sebuah modul.
 
 # try except else finally
 # blok kode ini digunakan untuk mencegah kode berhenti jika terjadi error.
-try: # digunakan untuk ngecek kod3
+try: # digunakan untuk ngecek kode
     print(jawa) # ini akan mengebabkan error karena varabel jawa tidak ada
 except NameError: # kode untuk mengatasi error
     print("Error, variabel itu tidak ada!")

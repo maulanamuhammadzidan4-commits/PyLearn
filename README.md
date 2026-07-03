@@ -1,6 +1,9 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## day 19:
+Saya membuat sebuah mini project untuk menyegarkan kembali pemahaman saya. Project ini mencakup garis besar (inti) dari semua materi yang telah saya pelajari.
+
 ## Day 18:
 Saya tidak belajar hari ini saya hanya membaca-baca ulang materi.
 
