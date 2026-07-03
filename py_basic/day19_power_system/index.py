@@ -1,7 +1,7 @@
 import json
 import db as database
 
-# deklarasi vara
+# deklarasi variabel
 used = True
 try:
     dasar = database.dasar
@@ -36,7 +36,7 @@ except TypeError:
 # KODE UTAMA
 print('--SELAMAT DATANG DI PENJELASAN POWER SYSTEM---\nDi novel Project Lokantara.')
 while used:
-    print(f'Pilihan: {', '.join(pilihanAwal)}')
+    print(f'Pilihan: {", ".join(pilihanAwal)}')
     usinput = input('Apa yang ingin anda ketahui? ').upper()
     dipakai = True
     if usinput not in pilihanAwal:
