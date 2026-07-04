@@ -1,7 +1,10 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
-## day 19:
+## Day 12:
+Saya memperbaiki dan menganti nested if dengan blok match case demi keterbacaan. saya meningkatkan kemanan dengan menambahkan supaya user hanya bisa mengetikan 1 sampai 8. Versi perbaikan ini mencakup lebih banyak materi.
+
+## Day 19:
 Saya membuat sebuah mini project untuk menyegarkan kembali pemahaman saya. Project ini mencakup garis besar (inti) dari semua materi yang telah saya pelajari.
 
 ## Day 18:
