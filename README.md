@@ -1,7 +1,37 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
-## Day 12:
+## Day 21:
+Belajar: OOP & dasar class (class/object, __init__() method, dan parameter self)
+```python
+class MyClass:
+    x = 255
+p1 = MyClass()
+p2 = MyClass()
+print(p1.x)
+print(p2.x)
+```
+### Materi:
+**OOP Object Oriented Programing:**<br>
+Python adalah bahasa yang berorientasi objek, yang memungkinkan untuk menyusun kode menggunakan class dan object untuk pengorganisasian dan penggunaan kembali yang lebih baik. Ini memberikan keunggulan:
+1. Membuat struktur yang jelas pada program
+2. Membuat kode lebih mudah dipelihara, digunakan kembali dan di-debug
+3. Menjaga kode supaya tetap DRY (Don't Repeat Yourself (kode tidak ditulis berulang))
+4. Membuat aplikasi dengan kode yang elbih sedikit<br>
+**Class/Object:**<br>
+Class adalah sebuah cetak biru untuk membuat objek.<br>
+Analogi: buah (class), apel, pisang, nanas, semangka, pepaya (objek)
+**__init__ method:**<br>
+Init method adalah sebuah fungsi yang akan dijalankan otomatis saat class disiapkan.Method ini digunakan untuk menetapkan nilai pada properti objek.
+**self parameters:**<br>
+Parameter self adalah referensi yang merujuk pada 'isi' di class.<br>
+Ini digunakan untuk mengakses properti dan method yang ada dimiliki class tersebut. Ini berguna supaya properti atau method yang akan dipilih tidak salah.
+### Sumber:
+[OOP](https://www.w3schools.com/python/python_oop.asp)
+[Class/Object](https://www.w3schools.com/python/python_classes.asp)
+[Self_parameters](https://www.w3schools.com/python/python_class_self.asp)
+
+## Day 20:
 Saya memperbaiki dan menganti nested if dengan blok match case demi keterbacaan. saya meningkatkan kemanan dengan menambahkan supaya user hanya bisa mengetikan 1 sampai 8. Versi perbaikan ini mencakup lebih banyak materi.
 
 ## Day 19:
