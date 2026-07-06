@@ -1,6 +1,55 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 22:
+Belajar: OOP lanjutan (class properties, class methods, class inheritance, encapsulation, inner class)
+```python
+class MyClass:
+    class_property = "Ini adalah properti kelas"
+
+    def __init__(self, value):
+        self.instance_property = value
+
+    @classmethod
+    def class_method(cls):
+        return f"Ini adalah metode kelas, properti kelas: {cls.class_property}"
+
+    def instance_method(self):
+        return f"Ini adalah metode instance, properti instance: {self.instance_property}"
+    
+class ParentClass:
+    def __init__(self, name):
+        self.name = name
+
+class ChildClass(ParentClass):
+    def __init__(self, name, age):
+        super().__init__(name)
+        self.age = age
+
+# Contoh penggunaan inner class
+class OuterClass:
+    class InnerClass:
+        def inner_method(self):
+            return "Ini adalah metode dari inner class"
+
+    def outer_method(self):
+        inner = self.InnerClass()
+        return inner.inner_method()
+```
+### Materi:
+**Class Properties:**<br>
+Class properties adalah variabel yang dimiliki oleh kelas itu sendiri, bukan oleh instance dari kelas tersebut. Class properties dapat diakses menggunakan nama kelas.<br>
+**Class Methods:**<br>
+Class methods adalah metode yang terkait dengan kelas itu sendiri, bukan dengan instance dari kelas. Class methods didefinisikan menggunakan dekorator `@classmethod` dan menerima parameter `cls` yang merujuk pada kelas itu sendiri.<br>
+**Class Inheritance:**<br>
+Class inheritance adalah konsep di mana sebuah kelas dapat mewarisi properti dan metode dari kelas lain. Kelas yang mewarisi disebut kelas anak (child class), sedangkan kelas yang diwarisi disebut kelas induk (parent class).<br>
+**Encapsulation:**<br>
+Encapsulation adalah konsep dalam OOP yang membatasi akses ke properti dan metode dari sebuah kelas. Ini dilakukan untuk melindungi data dan memastikan bahwa properti dan metode hanya dapat diakses melalui antarmuka yang telah ditentukan.<br>
+**Inner Class:**<br>
+Inner class adalah kelas yang didefinisikan di dalam kelas lain. Inner class dapat mengakses properti dan metode dari kelas luar.
+### Sumber:
+[W3School](https://www.w3schools.com/python/python_classes.asp)
+
 ## Day 21:
 Belajar: OOP & dasar class (class/object, __init__() method, dan parameter self)
 ```python
