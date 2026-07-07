@@ -1,6 +1,9 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 23:
+Membuat mini project berdasarkan materi OOP yang telah dipelajari untuk tujuan penyegaran ingatan.
+
 ## Day 22:
 Belajar: OOP lanjutan (class properties, class methods, class inheritance, encapsulation, inner class)
 ```python
