@@ -1,6 +1,25 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 24:
+Belajar: File handling Python.
+```python
+import os
+buka = open("contoh.txt").read()
+print(buka)
+with open("ubah.txt", "w") as timpa:
+    timpa.write("Ini akan menimpa konten di dalamnya.")
+os.remove('koruptor.txt')
+```
+### Materi:
+Untuk membuka file, kita bisa menggunakan fungsi open() dengan mode 'r' (read) atau tanpa mode (defaultnya adalah read).<br>
+Untuk menulis ke file, kita bisa menggunakan mode 'w' (write) untuk menimpa konten yang ada, atau mode 'a' (append) untuk menambahkan konten di akhir file.<br>
+Untuk menghapus file, kita bisa menggunakan modul os dengan fungsi os.remove() dan memberikan nama file yang ingin dihapus sebagai argumen.<br>
+### Evaluasi:
+Saya sempat gagal membuka file karena saya tidak menuliskan direktori yang ada di terminal saya sehingga Python tak bisa membukanya filenya. Setelah saya mengganti direktori di terminal ke tempat yang benar menggunakan command cd, saya pun bisa membukanuya.
+### Sumber:
+[W3School](https://www.w3schools.com/python/python_file_handling.asp)
+
 ## Day 23:
 Membuat mini project berdasarkan materi OOP yang telah dipelajari untuk tujuan penyegaran ingatan.
 
