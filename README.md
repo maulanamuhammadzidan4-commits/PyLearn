@@ -1,6 +1,37 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 25:
+Penyempurnaan materi dasar: argparse, __str__() dan __repr__() function, dan manegement dependensi (requirements.txt).
+```python
+import argparse
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return f"MyClass dengan nilai: {self.value}"
+
+    def __repr__(self):
+        return f"MyClass({self.value})"
+arg_parser = argparse.ArgumentParser(description="Contoh penggunaan argparse")
+arg_parser.add_argument("--input", type=str, help="Input string")
+args = arg_parser.parse_args()
+if args.input:
+    print(f"Input yang diterima: {args.input}")
+else:
+    print("Tidak ada input yang diterima.")
+```
+### Materi:
+**argparse:**<br>
+argparse adalah modul bawaan Python yang digunakan untuk membuat antarmuka baris perintah. Dengan argparse, kita dapat menentukan argumen yang diterima oleh program, memberikan deskripsi, dan memproses input dari pengguna dengan mudah.<br>
+**__str__() dan __repr__() function:**<br>
+`__str__()` digunakan untuk menghasilkan representasi string yang mudah dibaca oleh pengguna, sedangkan `__repr__()` digunakan untuk menghasilkan representasi string yang lebih detail dan biasanya digunakan untuk debugging.<br>
+**Manajemen dependensi (requirements.txt):**<br>
+Manajemen dependensi adalah proses mengelola paket dan modul yang dibutuhkan oleh proyek Python. File `requirements.txt` digunakan untuk mencantumkan semua dependensi yang diperlukan oleh proyek, sehingga memudahkan instalasi dan pengelolaan paket menggunakan pip.<br>
+### Sumber:
+Pembelajaran menggunakan model AI Gemini.
+
 ## Day 24:
 Belajar: File handling Python.
 ```python
