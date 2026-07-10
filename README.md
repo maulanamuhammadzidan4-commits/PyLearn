@@ -1,6 +1,17 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 26--30:
+### Day 1 Perencanaan:
+Membuat medium project (projek yang lebih besar dari mini projek sebelumnya).<br>
+Projek ini akan mencakup sekitar 80 hingga 95% materi dasar Python.<br><br>
+Projek ini akan membuat versi sempurna dari mini projek power system sebelumnya.<br>
+Projek ini bertujuan untuk melatih kemampuan logika dasar, pikiran abstrak, problem solving dan manajemen proyek.<br>
+Projek ini akan mencakup seluruh sistem kekuatan dari konsep dasar perhitungan, skala kekuatan dan lainnya.<br><br>
+**Tools:**<br>
+1. Bulit in module (argparse, json, os)
+2. VS code
+
 ## Day 25:
 Penyempurnaan materi dasar: argparse, __str__() dan __repr__() function, dan manegement dependensi (requirements.txt).
 ```python
