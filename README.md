@@ -1,7 +1,15 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
-## Day 26--30:
+## Day 26--30 Medium Project:
+### Day 2 Fitur:
+Medium project ini akan mencakup seluruh konsep power system secara menyeluruh, antara lain:
+1. Perbedaan penggunaan kekuatan bagi tiap tingkatan
+2. Pemilihan tingkat yang lebih ketat
+3. Bisa melakukan overload dengan konsekuensi yang setara
+4. Setelah user mendeklarasikan akan menggunakan sihir, akan muncul pemberitahuan batas penggunaan prana (energi sihir)
+5. Saat melakukan perhitungan, input yang akan diminta adalah (semua yang ada di mini projek sebelumnya).
+
 ### Day 1 Perencanaan:
 Membuat medium project (projek yang lebih besar dari mini projek sebelumnya).<br>
 Projek ini akan mencakup sekitar 80 hingga 95% materi dasar Python.<br><br>
