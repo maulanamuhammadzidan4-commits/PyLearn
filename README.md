@@ -2,6 +2,12 @@
 Projek 90 hari untuk menguasai python.
 
 ## Day 26--30 Medium Project:
+### Day 3 Prototype:
+Saya membuat gambaran kasar dengan membuat penampil status terlebih dulu.<br>
+Rencana besok:<br>
+1. Menyesuaikan dengan fitur
+2. Memperbaiki bug yang belum terdeteksi
+
 ### Day 2 Fitur:
 Medium project ini akan mencakup seluruh konsep power system secara menyeluruh, antara lain:
 1. Perbedaan penggunaan kekuatan bagi tiap tingkatan
@@ -17,7 +23,7 @@ Projek ini akan membuat versi sempurna dari mini projek power system sebelumnya.
 Projek ini bertujuan untuk melatih kemampuan logika dasar, pikiran abstrak, problem solving dan manajemen proyek.<br>
 Projek ini akan mencakup seluruh sistem kekuatan dari konsep dasar perhitungan, skala kekuatan dan lainnya.<br><br>
 **Tools:**<br>
-1. Bulit in module (argparse, json, os)
+1. Bulit in module (argparse, json, os, Path(pathlib))
 2. VS code
 
 ## Day 25:
