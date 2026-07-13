@@ -1,0 +1,10 @@
+{
+    "Dummy": {
+        "Tingkat": "T4",
+        "Emotion energy": 1000,
+        "Prana": 500,
+        "Can use Sutra": true,
+        "Kondisi emosi": "Aman",
+        "Sutra history": {}
+    }
+}

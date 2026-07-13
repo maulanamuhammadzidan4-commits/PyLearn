@@ -1,7 +1,12 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
-## Day 26--30 Medium Project:
+## Day 26--30 + 2 Medium Project:
+### Day 4 Prototype 2.0:
+Menyelesaikan bagian classes.py.<br>
+**Evaluasi:**<br>
+Seharusnya hari ini adalah hari penyempurnaan, tapi karena beberapa alasan, saya tidak bisa menyelesaikan semuanya. Jadi proyek ini akan diperpanjang selama 2 hari.
+
 ### Day 3 Prototype:
 Saya membuat gambaran kasar dengan membuat penampil status terlebih dulu.<br>
 Rencana besok:<br>

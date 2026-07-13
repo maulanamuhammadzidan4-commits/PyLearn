@@ -2,7 +2,6 @@
     "Spesies": {
         "Manusia": {
             "Emosi": 1000,
-            "hp": 100,
             "Tingkat": {
                 "T1": {
                     "tingkat": "pertama",
@@ -72,7 +71,6 @@
         },
         "Elf": {
             "Emosi": 1000,
-            "hp": 150,
             "Tingkat": {"T1": {
                     "tingkat": "pertama",
                     "nama": "Sopana Eka",
