@@ -2,6 +2,9 @@
 Projek 90 hari untuk menguasai python.
 
 ## Day 26--30 + 2 Medium Project:
+### Day 5 Prototype 3.0:
+Membuat kode untuk user (main.py) dan menyempurnakan bagian classes dengan menambahkan beberapa fitur pelengkap dan memperbaiki beberapa bug.
+
 ### Day 4 Prototype 2.0:
 Menyelesaikan bagian classes.py.<br>
 **Evaluasi:**<br>

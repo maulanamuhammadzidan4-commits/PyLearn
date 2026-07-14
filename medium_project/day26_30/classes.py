@@ -7,7 +7,7 @@ pilihan = {
     "tolakan": ['TIDAK', 'KELUAR', 'SUDAH'],
     "deklarasi": ['MULAI', 'SUTRA', 'MEMULAI SUTRA', 'BERHITUNG', 'MEMULAI PERHITUNGAN'],
     "overclock": ['PELEPASAN BATAS', 'OVERCLOCK', 'MELEBIHI BATAS', 'MEMAKAN EMOSI', 'PERTARUHAN'],
-    "perstujuan": ['YA', 'IYA', 'OKE', 'OK', 'BAIKLAH', 'LAKUKAN']
+    "persetujuan": ['YA', 'IYA', 'OKE', 'OK', 'BAIKLAH', 'LAKUKAN']
 }
 
 # database
@@ -28,26 +28,49 @@ def save(us_data):
     with open(us_path, 'w') as usdb:
         json.dump(us_data, usdb, indent=4)
 
+def keygenerator():
+    for i in range(1, 30001):
+        yield f'X{i}'
+
 # the code
 # entity
 class Entity:
     def __init__(self, spesies, name):
+        """Class induk"""
         db, _ = load_db()
         self.spesies = spesies
         self.name = name
         self.emotion = db['Spesies'][self.spesies]['Emosi']
         self.history = {}
+        self.psycology = ''
 
     def get_data(self):
-        return {
-            'Tingkat': self.tingkat,
-            'Emotion energy': self.emotion,
-            'Prana': self.prana,
-            'Can use Sutra': self.is_use_sutra,
-            'Sutra history': self.history
+        data = {
+            self.name: {
+                'Tingkat': self.tingkat,
+                'Emotion energy': self.emotion,
+                'Prana': self.prana,
+                'Can use Sutra': self.is_use_sutra,
+                'Kondisi emosi': self.psycology,
+                'Sutra history': self.history
+            }
         }
+        return data
+    
+    def get_data_with_history(self):
+        data = {
+            self.name: {
+                'Tingkat': self.tingkat,
+                'Emotion energy': self.emotion,
+                'Prana': self.prana,
+                'Can use Sutra': self.is_use_sutra,
+                'Kondisi emosi': self.psycology,
+            }
+        }
+        return data
 
     def __str__(self):
+        """Used for open status"""
         selfData = {
             'Name': self.name,
             'Prana': self.prana,
@@ -59,6 +82,7 @@ class Entity:
         return json.dumps(selfData, indent=4, separators=('; ', ' => '))
 
 class Human(Entity):
+    """Class for human"""
     def __init__(self, name, exist=None):
         spesies = 'Manusia'
         super().__init__(spesies, name)
@@ -69,15 +93,18 @@ class Human(Entity):
         self.bisa = None
         self.sutra_result = {}
         self.psycology = "Aman"
+        self.key = keygenerator()
         
         if exist:
             self.tingkat = exist['Tingkat']
+            self.emotion = exist['Emotion energy']
             self.prana = exist['Prana']
             self.is_use_sutra = exist['Can use Sutra']
+            self.psycology = exist['Kondisi emosi']
             self.history = exist['Sutra history']
         
         else:
-            tingkat, kemungkinan = [f'T{x}' for x in range(1, 7)], [40, 30, 15, 10, 4, 1]
+            tingkat, kemungkinan = [f'T{x}' for x in range(1, 6)], [40, 30, 15, 10, 5]
             gacha = random.choices(tingkat, weights=kemungkinan)
             self.tingkat = gacha[0]
             self.prana = (db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi'] / 100) * db['Spesies'][self.spesies]['Emosi']
@@ -102,6 +129,7 @@ class Human(Entity):
         return "Deklarasikan dulu!", False
     
     def sutra(self, gaya, wujud, code, position):
+        """Method for sutra"""
         alert, self.bisa = self.penyelarasan_prana()
         if self.bisa:
             cells = [0] * 30000
@@ -146,12 +174,17 @@ class Human(Entity):
             self.wujud = wujud
             self.gaya = gaya
             self.position = position
-            self.sutra_result = {
-                'gaya': self.gaya,
-                'wujud': self.wujud,
-                'hasil': self.hitungan,
-                'posisi': self.position
+
+            self.sutra_result = { 
+                next(self.key): {
+                    'gaya': self.gaya,
+                    'wujud': self.wujud,
+                    'code': code,
+                    'hasil': self.hitungan,
+                    'posisi': self.position
+                }
             }
+            self.history.update(self.sutra_result)
             return self.sutra_result
         else:
             return f"Error: {alert}"
@@ -159,17 +192,22 @@ class Human(Entity):
     def prakasa(self):
         db, _ = load_db()
         if self.sutra_result:
-            mana_cost = 75 if len(self.sutra_result['hasil']) > 2 else 50 if len(self.sutra_result['hasil']) == 2 else 25
-            self.history = self.sutra_result
+            # keys
+            current_keys = list(self.sutra_result.keys())[-1]
+            hasil_sutra = self.sutra_result[current_keys]['hasil']
+            mana_cost = 75 if len(hasil_sutra) > 2 else 50 if len(hasil_sutra) == 2 else 25
             if self.prana < mana_cost:
                 return "Prana tidak cukup!"
             elif self.is_overclock:
                 self.emotion = max(0, self.emotion - mana_cost)
-                self.psycology = 'Monster logis' if self.emotion < 250 else 'Hilang harapan' if self.emotion < 500 else 'Mulai tidak emosional' if self.emotion <= 750 else 'Terkikis'
+                self.psycology = 'Nir-Atma: Emotionless' if self.emotion == 0 else 'Monster logis' if self.emotion < 250 else 'Hilang harapan' if self.emotion < 500 else 'Mulai tidak emosional' if self.emotion <= 750 else 'Terkikis'
                 self.prana = (db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi'] / 100) * self.emotion
             
             elif self.prana >= mana_cost:
                 self.prana -= mana_cost
-            return f"{self.name} memanipulasi {self.sutra_result['hasil']} dengan wujud {self.sutra_result['wujud']} menggunakan gaya {self.sutra_result['gaya']} di {self.sutra_result['posisi']}"
+            return f"{self.name} memanipulasi {self.sutra_result[current_keys]['hasil']} dengan wujud {self.sutra_result[current_keys]['wujud']} menggunakan gaya {self.sutra_result[current_keys]['gaya']} di {self.sutra_result[current_keys]['posisi']}"
         else:
             return 'Hitung dulu!'
+
+class MindBreak(Exception):
+    pass

@@ -6,5 +6,21 @@
         "Can use Sutra": true,
         "Kondisi emosi": "Aman",
         "Sutra history": {}
+    },
+    "Zayd": {
+        "Tingkat": "T6",
+        "Emotion energy": 0,
+        "Prana": 8000.0,
+        "Can use Sutra": true,
+        "Kondisi emosi": "Nir-Atma: Emotionless",
+        "Sutra history": {
+            "X1": {
+                "gaya": "gravitasi",
+                "wujud": "padat",
+                "code": "+++++++++[>++++++++>+++++++++++<<-]>--.>++.",
+                "hasil": "Fe",
+                "posisi": "depan"
+            }
+        }
     }
 }
