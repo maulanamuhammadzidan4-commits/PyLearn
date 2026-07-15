@@ -1,7 +1,10 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
-## Day 26--30 + 2 Medium Project:
+## Day 26--30 + 4 Medium Project:
+### Day 6 Prototype 4.0:
+Membuat beberapa penyesuaian lagi. Memperbaiki bug pada database. Menambahkan kode untuk overclock.
+
 ### Day 5 Prototype 3.0:
 Membuat kode untuk user (main.py) dan menyempurnakan bagian classes dengan menambahkan beberapa fitur pelengkap dan memperbaiki beberapa bug.
 

@@ -2,7 +2,7 @@
     "Dummy": {
         "Tingkat": "T4",
         "Emotion energy": 1000,
-        "Prana": 500,
+        "Prana": 0,
         "Can use Sutra": true,
         "Kondisi emosi": "Aman",
         "Sutra history": {}

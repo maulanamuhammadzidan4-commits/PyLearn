@@ -37,7 +37,7 @@ while used:
                 hasil, _ = p1.penyelarasan_prana()
                 print(hasil)
                 if p1.prana >= 500 and p1.history:
-                    acc = input("Apakah ingin menggunakan hystory? ").upper()
+                    acc = input("Apakah ingin menggunakan history? ").upper()
                     if acc in c.pilihan['persetujuan']:
                         hitungan = input(f"Pilihan history: {list(p1.history.keys())}\n")
                         if hitungan not in list(p1.history.keys()):
@@ -49,28 +49,45 @@ while used:
                         p1.prana -= 50
                         mind_break += 0.5
                         print(p1.prakasa())
-                        c.save(p1.get_data_with_history())
+                        data = p1.get_data_with_history()
+                        us[p1.name] = data
+                        c.save(us)
+                        continue
                     elif acc in c.pilihan['tolakan']:
                         print()
                     
                     gaya = input()
                     if gaya.upper() in c.pilihan['tolakan']:
-                        declarated = False
-                        continue
+                        break
                     else:
                         wujud = input()
                         code = input()
                         tempat = input()
-                        p1.sutra(gaya, wujud, code, tempat)
+                        scale = 'Pro' if gaya.upper() in c.pro else 'Noob'
+                        if scale == 'Pro':
+                            p1.sutra(gaya, wujud, code, tempat)
+                            mind_break += 0.5
+                            print(p1.prakasa())
+                        elif scale == 'Noob':
+                            p1.sutra(gaya, wujud, code, tempat)
                     mind_break += 1
                     print(p1.prakasa())
-                    c.save(p1.get_data())
-                    continue
-
-
+                    print(mind_break)
+                    us.update(p1.get_data())
+                    c.save(us)
             
         elif tes in c.pilihan['overclock']:
-            pass
+            p1.is_overclock = True
+            if p1.prana > 0:
+                print("Lah buat apa jier")
+                continue
+            elif p1.prana <= 0:
+                print("Bahaya, sistem limbik sedang dikuras")
+                p1.sutra(input('gaya '), input('wujud '), input(), input('posisi'))
+                mind_break += 5
+                print(p1.prakasa(True))
+                print(mind_break)
+                us.update(p1.get_data())
         elif tes in ['STATUS OPEN', 'OPEN STATUS']:
             print(p1)
             continue

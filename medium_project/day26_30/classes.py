@@ -7,8 +7,10 @@ pilihan = {
     "tolakan": ['TIDAK', 'KELUAR', 'SUDAH'],
     "deklarasi": ['MULAI', 'SUTRA', 'MEMULAI SUTRA', 'BERHITUNG', 'MEMULAI PERHITUNGAN'],
     "overclock": ['PELEPASAN BATAS', 'OVERCLOCK', 'MELEBIHI BATAS', 'MEMAKAN EMOSI', 'PERTARUHAN'],
-    "persetujuan": ['YA', 'IYA', 'OKE', 'OK', 'BAIKLAH', 'LAKUKAN']
+    "persetujuan": ['YA', 'IYA', 'OKE', 'OK', 'BAIKLAH', 'LAKUKAN'],
+    "physics pillar": ['GRAVITASI', 'GRAVITATION', 'ELEKTROMAGNET', 'ELECTROMAGNET', 'NUKLIR LEMAH', 'WEAK NUCLEAR FORCE', 'NUKLIR KUAT', 'STRONG NUCLEAR FORCE', 'EKA-0-1-1-1', 'DVI-0-2-2-2', 'TRI-3-0-3', 'CATUR-0-4-0-4']
 }
+noob, pro = pilihan['physics pillar'][0:8], pilihan['physics pillar'][8:]
 
 # database
 BASE_DIR = Path(__file__).resolve().parent
@@ -58,15 +60,12 @@ class Entity:
         return data
     
     def get_data_with_history(self):
-        data = {
-            self.name: {
-                'Tingkat': self.tingkat,
-                'Emotion energy': self.emotion,
-                'Prana': self.prana,
-                'Can use Sutra': self.is_use_sutra,
-                'Kondisi emosi': self.psycology,
-            }
-        }
+        data = [
+            ['Emotion energy', self.emotion],
+            ['Prana', self.prana],
+            ['Can use sutra', self.is_use_sutra],
+            ['Kondisi emosi', self.psycology]
+        ]
         return data
 
     def __str__(self):
@@ -189,8 +188,7 @@ class Human(Entity):
         else:
             return f"Error: {alert}"
     
-    def prakasa(self):
-        db, _ = load_db()
+    def prakasa(self, overclock=False):
         if self.sutra_result:
             # keys
             current_keys = list(self.sutra_result.keys())[-1]
@@ -198,11 +196,11 @@ class Human(Entity):
             mana_cost = 75 if len(hasil_sutra) > 2 else 50 if len(hasil_sutra) == 2 else 25
             if self.prana < mana_cost:
                 return "Prana tidak cukup!"
-            elif self.is_overclock:
+            elif overclock:
                 self.emotion = max(0, self.emotion - mana_cost)
                 self.psycology = 'Nir-Atma: Emotionless' if self.emotion == 0 else 'Monster logis' if self.emotion < 250 else 'Hilang harapan' if self.emotion < 500 else 'Mulai tidak emosional' if self.emotion <= 750 else 'Terkikis'
-                self.prana = (db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi'] / 100) * self.emotion
-            
+                return f"{self.name} memanipulasi {self.sutra_result[current_keys]['hasil']} dengan wujud {self.sutra_result[current_keys]['wujud']} menggunakan gaya {self.sutra_result[current_keys]['gaya']} di {self.sutra_result[current_keys]['posisi']}" 
+                
             elif self.prana >= mana_cost:
                 self.prana -= mana_cost
             return f"{self.name} memanipulasi {self.sutra_result[current_keys]['hasil']} dengan wujud {self.sutra_result[current_keys]['wujud']} menggunakan gaya {self.sutra_result[current_keys]['gaya']} di {self.sutra_result[current_keys]['posisi']}"
