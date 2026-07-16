@@ -58,15 +58,6 @@ class Entity:
             }
         }
         return data
-    
-    def get_data_with_history(self):
-        data = [
-            ['Emotion energy', self.emotion],
-            ['Prana', self.prana],
-            ['Can use sutra', self.is_use_sutra],
-            ['Kondisi emosi', self.psycology]
-        ]
-        return data
 
     def __str__(self):
         """Used for open status"""
@@ -92,7 +83,7 @@ class Human(Entity):
         self.bisa = None
         self.sutra_result = {}
         self.psycology = "Aman"
-        self.key = keygenerator()
+        self.is_history = False
         
         if exist:
             self.tingkat = exist['Tingkat']
@@ -127,8 +118,24 @@ class Human(Entity):
         self.bisa = False
         return "Deklarasikan dulu!", False
     
+    def get_next_key(self):
+        if not self.history:
+            return "X1"
+        existing_nums = []
+        for k in self.history.keys():
+            if k.startswith('X') and k[1:].isdigit():
+                existing_nums.append(int(k[1:]))
+        if not existing_nums:
+            return "X1"
+        return f"X{max(existing_nums) + 1}"
+    
     def sutra(self, gaya, wujud, code, position):
         """Method for sutra"""
+        if self.is_overclock:
+            self.bisa = True
+            alert = ''
+        else:
+            alert, self.bisa = self.penyelarasan_prana()
         alert, self.bisa = self.penyelarasan_prana()
         if self.bisa:
             cells = [0] * 30000
@@ -175,7 +182,7 @@ class Human(Entity):
             self.position = position
 
             self.sutra_result = { 
-                next(self.key): {
+                'hasil': {
                     'gaya': self.gaya,
                     'wujud': self.wujud,
                     'code': code,
@@ -183,27 +190,41 @@ class Human(Entity):
                     'posisi': self.position
                 }
             }
-            self.history.update(self.sutra_result)
             return self.sutra_result
         else:
             return f"Error: {alert}"
+        
+    def useHistory(self, key):
+        _, us = load_db()
+        self.is_history = True
+        h = us[self.name]['Sutra history'][key]
+        self.sutra(h['gaya'], h['wujud'], h['code'], h['posisi'])
     
-    def prakasa(self, overclock=False):
-        if self.sutra_result:
-            # keys
-            current_keys = list(self.sutra_result.keys())[-1]
-            hasil_sutra = self.sutra_result[current_keys]['hasil']
+    def prakasa(self, *args, **kwargs):
+        if self.sutra_result and 'hasil' in self.sutra_result:
+            hasil_sutra = self.sutra_result['hasil']
             mana_cost = 75 if len(hasil_sutra) > 2 else 50 if len(hasil_sutra) == 2 else 25
-            if self.prana < mana_cost:
-                return "Prana tidak cukup!"
-            elif overclock:
+
+            if self.is_overclock:
                 self.emotion = max(0, self.emotion - mana_cost)
                 self.psycology = 'Nir-Atma: Emotionless' if self.emotion == 0 else 'Monster logis' if self.emotion < 250 else 'Hilang harapan' if self.emotion < 500 else 'Mulai tidak emosional' if self.emotion <= 750 else 'Terkikis'
-                return f"{self.name} memanipulasi {self.sutra_result[current_keys]['hasil']} dengan wujud {self.sutra_result[current_keys]['wujud']} menggunakan gaya {self.sutra_result[current_keys]['gaya']} di {self.sutra_result[current_keys]['posisi']}" 
+                self.sutra_result.pop('hasil')
+                return f"{self.name} memanipulasi {hasil_sutra['hasil']} dengan wujud {hasil_sutra['wujud']} menggunakan gaya {hasil_sutra['gaya']} di {hasil_sutra['posisi']} (MODE OVERCLOCK)"
                 
+            elif self.prana < mana_cost:
+                return "Prana tidak cukup!"
+            
+            elif self.is_history:
+                self.prana -= mana_cost
+                self.is_history = False
+                return f"{self.name} memanipulasi {hasil_sutra['hasil']} menggunakan history dengan wujud {hasil_sutra['wujud']} menggunakan gaya {hasil_sutra['gaya']} di {hasil_sutra['posisi']}"
+                        
             elif self.prana >= mana_cost:
                 self.prana -= mana_cost
-            return f"{self.name} memanipulasi {self.sutra_result[current_keys]['hasil']} dengan wujud {self.sutra_result[current_keys]['wujud']} menggunakan gaya {self.sutra_result[current_keys]['gaya']} di {self.sutra_result[current_keys]['posisi']}"
+                next_key = self.get_next_key()
+                self.history[next_key] = self.sutra_result.pop('hasil')
+            return f"{self.name} memanipulasi {self.history[next_key]['hasil']} dengan wujud {self.history[next_key]['wujud']} menggunakan gaya {self.history[next_key]['gaya']} di {self.history[next_key]['posisi']}"
+                
         else:
             return 'Hitung dulu!'
 

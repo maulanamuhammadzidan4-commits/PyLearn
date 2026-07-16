@@ -11,6 +11,7 @@ db, us = c.load_db()
 # code
 print("---Selamat datang di Simulasi Limbic-Compiler Project Lokantara")
 while used:
+    # Loop utama yang mencakup seluruh urutan kode
     dipakai = True
     if mind_break > 10:
         raise c.MindBreak("Otakmu mengalami overheat! Tidak bisa apa-apa.")
@@ -26,31 +27,35 @@ while used:
         p1 = c.Human(user)
         
     while dipakai:
+        # Loop yang bertugas untuk melakukan perhitungan. Dimulai dari deklarasi dan seterusnya.
         declaration = input()
         tes = declaration.upper()
         if tes in c.pilihan['deklarasi']:
             p1.declaration(declaration)
             declarated = True
             while declarated:
+                # loop perhitungan, bisa memilih menggunakan history atau tidak
                 if mind_break > 10.0:
                     raise c.MindBreak("OverheatError: Kepalamu terbakar karena terus-terusan menghitung.")
                 hasil, _ = p1.penyelarasan_prana()
                 print(hasil)
                 if p1.prana >= 500 and p1.history:
+                    # blok kode jika memilih menggunakan history
                     acc = input("Apakah ingin menggunakan history? ").upper()
                     if acc in c.pilihan['persetujuan']:
                         hitungan = input(f"Pilihan history: {list(p1.history.keys())}\n")
+                        print(p1.is_history)
                         if hitungan not in list(p1.history.keys()):
                             print("Masukkan nilai yang benar!")
                             mind_break += 1
                             continue
-                        sutra = us[p1.name]['Sutra history'][hitungan]
-                        p1.sutra(sutra['gaya'], sutra['wujud'], sutra['code'], sutra['posisi'])
+                        p1.useHistory(hitungan)
+                        print(p1.is_history)
                         p1.prana -= 50
                         mind_break += 0.5
                         print(p1.prakasa())
-                        data = p1.get_data_with_history()
-                        us[p1.name] = data
+                        print(mind_break)
+                        us.update(p1.get_data())
                         c.save(us)
                         continue
                     elif acc in c.pilihan['tolakan']:
@@ -68,6 +73,10 @@ while used:
                             p1.sutra(gaya, wujud, code, tempat)
                             mind_break += 0.5
                             print(p1.prakasa())
+                            print(mind_break)
+                            us.update(p1.get_data())
+                            c.save(us)
+                            continue
                         elif scale == 'Noob':
                             p1.sutra(gaya, wujud, code, tempat)
                     mind_break += 1
@@ -75,6 +84,28 @@ while used:
                     print(mind_break)
                     us.update(p1.get_data())
                     c.save(us)
+
+                elif p1.is_use_sutra:
+                    gaya = input()
+                    if gaya.upper() in c.pilihan['tolakan']:
+                        break
+                    wujud = input()
+                    code = input()
+                    tempat = input()
+                    scale = 'Pro' if gaya.upper() in c.pro else 'Noob'
+                    if scale == 'Pro':
+                        p1.sutra(gaya, wujud, code, tempat)
+                        mind_break += 0.5
+                        print(p1.prakasa())
+                    elif scale == 'Noob':
+                        p1.sutra(gaya, wujud, code, tempat)
+                    mind_break += 1
+                    print(p1.prakasa())
+                    print(mind_break)
+                    us.update(p1.get_data())
+                    c.save(us)
+                else:
+                    print(f"{p1.name} tidak bisa mengolah prananya.")
             
         elif tes in c.pilihan['overclock']:
             p1.is_overclock = True
@@ -92,5 +123,7 @@ while used:
             print(p1)
             continue
         elif tes in c.pilihan['tolakan']:
+            us.update(p1.get_data())
+            c.save(us)
             print('Ok')
             dipakai = False
