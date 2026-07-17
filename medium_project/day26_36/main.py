@@ -100,23 +100,25 @@ while used:
                     elif scale == 'Noob':
                         p1.sutra(gaya, wujud, code, tempat)
                     mind_break += 1
+                    print(mind_break)
                     print(p1.prakasa())
                     print(mind_break)
                     us.update(p1.get_data())
                     c.save(us)
                 else:
                     print(f"{p1.name} tidak bisa mengolah prananya.")
+                    break
             
         elif tes in c.pilihan['overclock']:
-            p1.is_overclock = True
-            if p1.prana > 0:
+            if p1.prana > 25:
                 print("Lah buat apa jier")
                 continue
-            elif p1.prana <= 0:
+            else:
                 print("Bahaya, sistem limbik sedang dikuras")
+                p1.overclock()
                 p1.sutra(input('gaya '), input('wujud '), input(), input('posisi'))
                 mind_break += 5
-                print(p1.prakasa(True))
+                print(p1.prakasa())
                 print(mind_break)
                 us.update(p1.get_data())
         elif tes in ['STATUS OPEN', 'OPEN STATUS']:

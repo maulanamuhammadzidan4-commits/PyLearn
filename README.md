@@ -2,6 +2,9 @@
 Projek 90 hari untuk menguasai python.
 
 ## Day 26--36 Medium Project:
+### Day 8 Prototype 6.0:
+Membuat blok kode untuk menjalankan mode overclock.
+
 ### Day 7 Prototype 5.0:
 Menyelesaikan bagian main.py (pada bagian history dan penggunaan biasa), menyesuaikan class di classes.py, dan menghapus data yang tidak digunakan di db.json.
 

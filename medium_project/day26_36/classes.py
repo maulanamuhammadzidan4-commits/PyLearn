@@ -103,12 +103,15 @@ class Human(Entity):
     def declaration(self, deklarasi=False):
         self.is_declarated = deklarasi
     
-    def overclock(self, deklarasi=False):
-        self.is_overclock = deklarasi
+    def overclock(self):
+        self.is_overclock = True
     
     def penyelarasan_prana(self):
         db, _ = load_db()
-        if self.prana < 25:
+        if self.prana <= 0 and not self.is_overclock:
+            self.bisa = False
+            return f"{self.name} sudah kehabisan prana!", False
+        elif self.prana < 25:
             self.bisa = False
             return f"{self.name} sudah berada di batas penggunaan!", False
         elif (self.is_declarated or self.is_overclock) and self.is_use_sutra:
@@ -136,7 +139,6 @@ class Human(Entity):
             alert = ''
         else:
             alert, self.bisa = self.penyelarasan_prana()
-        alert, self.bisa = self.penyelarasan_prana()
         if self.bisa:
             cells = [0] * 30000
             ptr = 0
@@ -200,7 +202,7 @@ class Human(Entity):
         h = us[self.name]['Sutra history'][key]
         self.sutra(h['gaya'], h['wujud'], h['code'], h['posisi'])
     
-    def prakasa(self, *args, **kwargs):
+    def prakasa(self):
         if self.sutra_result and 'hasil' in self.sutra_result:
             hasil_sutra = self.sutra_result['hasil']
             mana_cost = 75 if len(hasil_sutra) > 2 else 50 if len(hasil_sutra) == 2 else 25
@@ -209,7 +211,7 @@ class Human(Entity):
                 self.emotion = max(0, self.emotion - mana_cost)
                 self.psycology = 'Nir-Atma: Emotionless' if self.emotion == 0 else 'Monster logis' if self.emotion < 250 else 'Hilang harapan' if self.emotion < 500 else 'Mulai tidak emosional' if self.emotion <= 750 else 'Terkikis'
                 self.sutra_result.pop('hasil')
-                return f"{self.name} memanipulasi {hasil_sutra['hasil']} dengan wujud {hasil_sutra['wujud']} menggunakan gaya {hasil_sutra['gaya']} di {hasil_sutra['posisi']} (MODE OVERCLOCK)"
+                return f"{self.name} memanipulasi {hasil_sutra['hasil']} dengan wujud {hasil_sutra['wujud']} menggunakan gaya {hasil_sutra['gaya']} di {hasil_sutra['posisi']}. Memakan emosi sebesar {mana_cost}"
                 
             elif self.prana < mana_cost:
                 return "Prana tidak cukup!"
