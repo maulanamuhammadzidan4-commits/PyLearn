@@ -2,6 +2,9 @@
 Projek 90 hari untuk menguasai python.
 
 ## Day 26--36 Medium Project:
+### Day 9 Prototype 7.0:
+Memperbaiki logika untuk user yang belum terdaftarkan dan membuat blok kode untuk antisipasi error pada kode brainfuck.
+
 ### Day 8 Prototype 6.0:
 Membuat blok kode untuk menjalankan mode overclock.
 

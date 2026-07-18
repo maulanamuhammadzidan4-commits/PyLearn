@@ -10,7 +10,7 @@
     "Zayd": {
         "Tingkat": "T6",
         "Emotion energy": 0,
-        "Prana": 7150.0,
+        "Prana": 8000.0,
         "Can use Sutra": true,
         "Kondisi emosi": "Nir-Atma: Emotionless",
         "Sutra history": {
@@ -41,6 +41,61 @@
                 "code": "+++++++++[>+++++++++>+++++++++<<-]>---.>++++++++++++++++.>+++++++++++[>+++++++++++<-]>+++.>++++++++[>++++++++<-]>+++.>++++++++++[>++++++++++<-]>++++++++.",
                 "hasil": "Na|Cl",
                 "posisi": "Depan"
+            }
+        }
+    },
+    "Kala": {
+        "Tingkat": "T2",
+        "Emotion energy": 1000,
+        "Prana": 42.0,
+        "Can use Sutra": true,
+        "Kondisi emosi": "Aman",
+        "Sutra history": {
+            "X1": {
+                "gaya": "gravitasi",
+                "wujud": "padat",
+                "code": "+++++++++[>++++++++<-]>.",
+                "hasil": "H",
+                "posisi": "depan"
+            }
+        }
+    },
+    "Jajang": {
+        "Tingkat": "T2",
+        "Emotion energy": 1000,
+        "Prana": 17.0,
+        "Can use Sutra": true,
+        "Kondisi emosi": "Aman",
+        "Sutra history": {
+            "X1": {
+                "gaya": "Gravitasi",
+                "wujud": "Padat",
+                "code": "+++++++[>++++++++]>.",
+                "hasil": "\u00f8",
+                "posisi": "depan"
+            },
+            "X2": {
+                "gaya": "",
+                "wujud": "keluar",
+                "code": "keluar",
+                "hasil": "",
+                "posisi": "keluar"
+            }
+        }
+    },
+    "Rafi": {
+        "Tingkat": "T3",
+        "Emotion energy": 1000,
+        "Prana": 175.0,
+        "Can use Sutra": true,
+        "Kondisi emosi": "Aman",
+        "Sutra history": {
+            "X1": {
+                "gaya": "Elektromagnet",
+                "wujud": "+++++++++++][.",
+                "code": "depan",
+                "hasil": "",
+                "posisi": ""
             }
         }
     }

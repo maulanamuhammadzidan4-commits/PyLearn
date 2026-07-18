@@ -70,7 +70,11 @@ while used:
                         tempat = input()
                         scale = 'Pro' if gaya.upper() in c.pro else 'Noob'
                         if scale == 'Pro':
-                            p1.sutra(gaya, wujud, code, tempat)
+                            perhitungan = p1.sutra(gaya, wujud, code, tempat)
+                            if perhitungan == 'Error':
+                                print(f"{perhitungan}: Perhitungan salah.")
+                                mind_break += 5
+                                continue
                             mind_break += 0.5
                             print(p1.prakasa())
                             print(mind_break)
@@ -78,7 +82,11 @@ while used:
                             c.save(us)
                             continue
                         elif scale == 'Noob':
-                            p1.sutra(gaya, wujud, code, tempat)
+                            perhitungan = p1.sutra(gaya, wujud, code, tempat)
+                            if perhitungan == 'Error':
+                                print(f"{perhitungan}: Perhitungan salah.")
+                                mind_break += 5
+                                continue
                     mind_break += 1
                     print(p1.prakasa())
                     print(mind_break)

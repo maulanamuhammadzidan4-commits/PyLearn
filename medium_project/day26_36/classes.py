@@ -115,7 +115,11 @@ class Human(Entity):
             self.bisa = False
             return f"{self.name} sudah berada di batas penggunaan!", False
         elif (self.is_declarated or self.is_overclock) and self.is_use_sutra:
-            hasil = f"{self.name} bisa menggunakan {db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi']}% dari total {self.emotion} atau {self.prana}"
+            self.prana_awal = (db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi'] / 100) * db['Spesies'][self.spesies]['Emosi']
+            if self.prana and not self.prana_awal:
+                hasil = f"{self.name} bisa menggunakan {db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi']}% dari total {self.emotion} atau {self.prana_awal} yang tinggal {self.prana}"
+            else:
+                hasil = f"{self.name} bisa menggunakan {db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi']}% dari total {self.emotion} atau {self.prana}"
             self.bisa = True
             return hasil, self.bisa
         self.bisa = False
@@ -134,67 +138,71 @@ class Human(Entity):
     
     def sutra(self, gaya, wujud, code, position):
         """Method for sutra"""
-        if self.is_overclock:
-            self.bisa = True
-            alert = ''
-        else:
-            alert, self.bisa = self.penyelarasan_prana()
-        if self.bisa:
-            cells = [0] * 30000
-            ptr = 0
-            code_ptr = 0
-            loop_map = {}
-            stack = []
-            output = []
-            self.hitungan = ""
+        try:
+            if self.is_overclock:
+                self.bisa = True
+                alert = ''
+            else:
+                alert, self.bisa = self.penyelarasan_prana()
+            if self.bisa:
+                cells = [0] * 30000
+                ptr = 0
+                code_ptr = 0
+                loop_map = {}
+                stack = []
+                output = []
+                self.hitungan = ""
 
-            # Pre-process loops
-            for i, char in enumerate(code):
-                if char == '[':
-                    stack.append(i)
-                elif char == ']':
-                    start = stack.pop()
-                    loop_map[start] = i
-                    loop_map[i] = start
+                # Pre-process loops
+                for i, char in enumerate(code):
+                    if char == '[':
+                        stack.append(i)
+                    elif char == ']':
+                        start = stack.pop()
+                        loop_map[start] = i
+                        loop_map[i] = start
 
-            # Execution
-            while code_ptr < len(code):
-                char = code[code_ptr]
-                if char == '>':
-                    ptr = (ptr + 1) % 30000
-                elif char == '<':
-                    ptr = (ptr - 1) % 30000
-                elif char == '+':
-                    cells[ptr] = (cells[ptr] + 1) % 256
-                elif char == '-':
-                    cells[ptr] = (cells[ptr] - 1) % 256
-                elif char == '.':
-                    output.append(chr(cells[ptr]))
-                elif char == '[':
-                    if cells[ptr] == 0:
-                        code_ptr = loop_map[code_ptr]
-                elif char == ']':
-                    if cells[ptr] != 0:
-                        code_ptr = loop_map[code_ptr]
-                        continue
-                code_ptr += 1
-                self.hitungan = ''.join(output)
-            self.wujud = wujud
-            self.gaya = gaya
-            self.position = position
+                # Execution
+                while code_ptr < len(code):
+                    char = code[code_ptr]
+                    if char == '>':
+                        ptr = (ptr + 1) % 30000
+                    elif char == '<':
+                        ptr = (ptr - 1) % 30000
+                    elif char == '+':
+                        cells[ptr] = (cells[ptr] + 1) % 256
+                    elif char == '-':
+                        cells[ptr] = (cells[ptr] - 1) % 256
+                    elif char == '.':
+                        output.append(chr(cells[ptr]))
+                    elif char == '[':
+                        if cells[ptr] == 0:
+                            code_ptr = loop_map[code_ptr]
+                    elif char == ']':
+                        if cells[ptr] != 0:
+                            code_ptr = loop_map[code_ptr]
+                            continue
+                    code_ptr += 1
+                    self.hitungan = ''.join(output)
+                else:
+                    return f"Error: {alert}"
+        except (IndexError, KeyError):
+            return 'Error'
+        
+        self.wujud = wujud
+        self.gaya = gaya
+        self.position = position
 
-            self.sutra_result = { 
-                'hasil': {
-                    'gaya': self.gaya,
-                    'wujud': self.wujud,
-                    'code': code,
-                    'hasil': self.hitungan,
-                    'posisi': self.position
-                }
+        self.sutra_result = { 
+            'hasil': {
+                'gaya': self.gaya,
+                'wujud': self.wujud,
+                'code': code,
+                'hasil': self.hitungan,
+                'posisi': self.position
             }
-            return self.sutra_result
-        else:
-            return f"Error: {alert}"
+        }
+        return self.sutra_result
         
     def useHistory(self, key):
         _, us = load_db()
@@ -204,7 +212,7 @@ class Human(Entity):
     
     def prakasa(self):
         if self.sutra_result and 'hasil' in self.sutra_result:
-            hasil_sutra = self.sutra_result['hasil']
+            hasil_sutra = self.sutra_result['hasil']['hasil']
             mana_cost = 75 if len(hasil_sutra) > 2 else 50 if len(hasil_sutra) == 2 else 25
 
             if self.is_overclock:
