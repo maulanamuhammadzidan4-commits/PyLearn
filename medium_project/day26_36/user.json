@@ -10,7 +10,7 @@
     "Zayd": {
         "Tingkat": "T6",
         "Emotion energy": 0,
-        "Prana": 8000.0,
+        "Prana": 7890.0,
         "Can use Sutra": true,
         "Kondisi emosi": "Nir-Atma: Emotionless",
         "Sutra history": {
@@ -41,13 +41,20 @@
                 "code": "+++++++++[>+++++++++>+++++++++<<-]>---.>++++++++++++++++.>+++++++++++[>+++++++++++<-]>+++.>++++++++[>++++++++<-]>+++.>++++++++++[>++++++++++<-]>++++++++.",
                 "hasil": "Na|Cl",
                 "posisi": "Depan"
+            },
+            "X5": {
+                "gaya": "Gravitasi",
+                "wujud": "Padat",
+                "code": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.",
+                "hasil": "n",
+                "posisi": "Kepala target 1"
             }
         }
     },
     "Kala": {
         "Tingkat": "T2",
         "Emotion energy": 1000,
-        "Prana": 42.0,
+        "Prana": 17.0,
         "Can use Sutra": true,
         "Kondisi emosi": "Aman",
         "Sutra history": {
@@ -62,10 +69,10 @@
     },
     "Jajang": {
         "Tingkat": "T2",
-        "Emotion energy": 1000,
+        "Emotion energy": 950,
         "Prana": 17.0,
-        "Can use Sutra": true,
-        "Kondisi emosi": "Aman",
+        "Can use Sutra": false,
+        "Kondisi emosi": "Terkikis",
         "Sutra history": {
             "X1": {
                 "gaya": "Gravitasi",

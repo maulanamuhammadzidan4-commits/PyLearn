@@ -8,7 +8,8 @@ pilihan = {
     "deklarasi": ['MULAI', 'SUTRA', 'MEMULAI SUTRA', 'BERHITUNG', 'MEMULAI PERHITUNGAN'],
     "overclock": ['PELEPASAN BATAS', 'OVERCLOCK', 'MELEBIHI BATAS', 'MEMAKAN EMOSI', 'PERTARUHAN'],
     "persetujuan": ['YA', 'IYA', 'OKE', 'OK', 'BAIKLAH', 'LAKUKAN'],
-    "physics pillar": ['GRAVITASI', 'GRAVITATION', 'ELEKTROMAGNET', 'ELECTROMAGNET', 'NUKLIR LEMAH', 'WEAK NUCLEAR FORCE', 'NUKLIR KUAT', 'STRONG NUCLEAR FORCE', 'EKA-0-1-1-1', 'DVI-0-2-2-2', 'TRI-3-0-3', 'CATUR-0-4-0-4']
+    "physics pillar": ['GRAVITASI', 'GRAVITATION', 'ELEKTROMAGNET', 'ELECTROMAGNET', 'NUKLIR LEMAH', 'WEAK NUCLEAR FORCE', 'NUKLIR KUAT', 'STRONG NUCLEAR FORCE', 'EKA-0-1-1-1', 'DVI-0-2-2-2', 'TRI-3-0-3', 'CATUR-0-4-0-4'],
+    "state of matter": ['PADAT', 'CAIR', 'GAS', 'PLASMA', 'CONDENSATE', 'BOSE-EINSTEIN CONDENSATE']
 }
 noob, pro = pilihan['physics pillar'][0:8], pilihan['physics pillar'][8:]
 
@@ -29,10 +30,6 @@ def save(us_data):
     """function for save user data to user.json"""
     with open(us_path, 'w') as usdb:
         json.dump(us_data, usdb, indent=4)
-
-def keygenerator():
-    for i in range(1, 30001):
-        yield f'X{i}'
 
 # the code
 # entity
@@ -102,27 +99,36 @@ class Human(Entity):
     
     def declaration(self, deklarasi=False):
         self.is_declarated = deklarasi
+        return self.is_declarated
     
     def overclock(self):
         self.is_overclock = True
+        return self.is_overclock
     
     def penyelarasan_prana(self):
         db, _ = load_db()
-        if self.prana <= 0 and not self.is_overclock:
-            self.bisa = False
+        if not self.is_use_sutra:
+            return f"{self.name} tidak bisa mengolah prananya!", False
+        elif self.prana <= 0 and not self.is_overclock:
             return f"{self.name} sudah kehabisan prana!", False
         elif self.prana < 25:
-            self.bisa = False
+            self.is_use_sutra = False
             return f"{self.name} sudah berada di batas penggunaan!", False
         elif (self.is_declarated or self.is_overclock) and self.is_use_sutra:
-            self.prana_awal = (db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi'] / 100) * db['Spesies'][self.spesies]['Emosi']
-            if self.prana and not self.prana_awal:
-                hasil = f"{self.name} bisa menggunakan {db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi']}% dari total {self.emotion} atau {self.prana_awal} yang tinggal {self.prana}"
-            else:
+            self.is_use_sutra = True
+            try:
+                self.prana_awal = (db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi'] / 100) * db['Spesies'][self.spesies]['Emosi']
+                if self.prana != self.prana_awal:
+                    hasil = f"{self.name} bisa menggunakan {db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi']}% dari total {self.emotion} atau {self.prana_awal} yang tinggal {self.prana}"
+                else:
+                    hasil = f"{self.name} bisa menggunakan {db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi']}% dari total {self.emotion} atau {self.prana}"
+            except TypeError:
                 hasil = f"{self.name} bisa menggunakan {db['Spesies'][self.spesies]['Tingkat'][self.tingkat]['penggunaan energi emosi']}% dari total {self.emotion} atau {self.prana}"
-            self.bisa = True
-            return hasil, self.bisa
-        self.bisa = False
+            return hasil, True
+        elif self.is_overclock and not self.is_use_sutra:
+            self.emotion -= self.emotion
+            self.psycology = 'Nir-Atma: Emotionless'
+            return "Nir atma", False
         return "Deklarasikan dulu!", False
     
     def get_next_key(self):
@@ -184,8 +190,8 @@ class Human(Entity):
                             continue
                     code_ptr += 1
                     self.hitungan = ''.join(output)
-                else:
-                    return f"Error: {alert}"
+            else:
+                return f"Error: {alert}"
         except (IndexError, KeyError):
             return 'Error'
         
@@ -212,14 +218,15 @@ class Human(Entity):
     
     def prakasa(self):
         if self.sutra_result and 'hasil' in self.sutra_result:
-            hasil_sutra = self.sutra_result['hasil']['hasil']
-            mana_cost = 75 if len(hasil_sutra) > 2 else 50 if len(hasil_sutra) == 2 else 25
+            hasil_sutra = self.sutra_result['hasil']
+            mana_cost = 75 if len(hasil_sutra['hasil']) > 2 else 50 if len(hasil_sutra['hasil']) == 2 else 25
 
             if self.is_overclock:
                 self.emotion = max(0, self.emotion - mana_cost)
                 self.psycology = 'Nir-Atma: Emotionless' if self.emotion == 0 else 'Monster logis' if self.emotion < 250 else 'Hilang harapan' if self.emotion < 500 else 'Mulai tidak emosional' if self.emotion <= 750 else 'Terkikis'
+                self.perhitungan = f"{self.name} memanipulasi {hasil_sutra['hasil']} dengan wujud {hasil_sutra['wujud']} menggunakan gaya {hasil_sutra['gaya']} di {hasil_sutra['posisi']}. Memakan emosi sebesar {mana_cost}"
                 self.sutra_result.pop('hasil')
-                return f"{self.name} memanipulasi {hasil_sutra['hasil']} dengan wujud {hasil_sutra['wujud']} menggunakan gaya {hasil_sutra['gaya']} di {hasil_sutra['posisi']}. Memakan emosi sebesar {mana_cost}"
+                return self.perhitungan
                 
             elif self.prana < mana_cost:
                 return "Prana tidak cukup!"

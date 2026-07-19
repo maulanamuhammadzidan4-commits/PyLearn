@@ -2,6 +2,17 @@
 Projek 90 hari untuk menguasai python.
 
 ## Day 26--36 Medium Project:
+### Day 10 Final:
+Memperbaiki semua bug yang ditemukan. Blok kode untuk mode overclock, antisipasi error dalam perhitungan sudah disempurnakan.<br>
+
+Dengan ini medium project pertama selesai dikerjakan dalam 10 hari. Rencananya projek ini hanya akan berjalan selama 4 hari saja, tapi karena banyak faktor eksternal, durasi pengerjaan pun terpaksa ditambah hingga 10 hari.<br>
+
+Total materi yang dicakup:<br>
+92 -- 95%<br>
+
+**Langkah selanjutnya:**<br>
+**Mempelajari algotirma**
+
 ### Day 9 Prototype 7.0:
 Memperbaiki logika untuk user yang belum terdaftarkan dan membuat blok kode untuk antisipasi error pada kode brainfuck.
 
@@ -43,7 +54,7 @@ Projek ini akan membuat versi sempurna dari mini projek power system sebelumnya.
 Projek ini bertujuan untuk melatih kemampuan logika dasar, pikiran abstrak, problem solving dan manajemen proyek.<br>
 Projek ini akan mencakup seluruh sistem kekuatan dari konsep dasar perhitungan, skala kekuatan dan lainnya.<br><br>
 **Tools:**<br>
-1. Bulit in module (argparse, json, os, Path(pathlib))
+1. Bulit in module (json, os, Path(pathlib))
 2. VS code
 
 ## Day 25:
