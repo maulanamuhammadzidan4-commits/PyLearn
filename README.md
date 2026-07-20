@@ -1,6 +1,9 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 37 & 38:
+Mengistirahatkan tubuh dan pikiran terlebih dulu.
+
 ## Day 26--36 Medium Project:
 ### Day 10 Final:
 Memperbaiki semua bug yang ditemukan. Blok kode untuk mode overclock, antisipasi error dalam perhitungan sudah disempurnakan.<br>
