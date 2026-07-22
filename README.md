@@ -1,6 +1,9 @@
 # PyLearn
 Projek 90 hari untuk menguasai python.
 
+## Day 39:
+Membuat set up Flask (membuat venv, menginstall module Flask dan membuat kode 'Hello world' pertama).
+
 ## Day 37 & 38:
 Mengistirahatkan tubuh dan pikiran terlebih dulu.
 
@@ -14,7 +17,7 @@ Total materi yang dicakup:<br>
 92 -- 95%<br>
 
 **Langkah selanjutnya:**<br>
-**Mempelajari algotirma**
+**Mempelajari Flask** (ada perubahan)
 
 ### Day 9 Prototype 7.0:
 Memperbaiki logika untuk user yang belum terdaftarkan dan membuat blok kode untuk antisipasi error pada kode brainfuck.
